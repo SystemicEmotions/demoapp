@@ -30,7 +30,7 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         //docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
         docker.withRegistry('https://161764708719.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws_ecr')    {
-            app.push("${env.BUILD_NUMBER}")
+            //app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
     }
