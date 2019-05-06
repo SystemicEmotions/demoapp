@@ -1,5 +1,7 @@
 FROM nginx
 
+COPY startup.sh /
+
 COPY html /usr/share/nginx/html
 
-CMD ["./wrapper.sh"]
+CMD ["./startup.sh"]
