@@ -2,31 +2,30 @@ node {
     def app
 
     stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+        /* repository cloned to our workspace */
 
         checkout scm
     }
 
     stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-        //app = docker.build("alokmalakar/demoapp")
-        app = docker.build("161764708719.dkr.ecr.us-east-1.amazonaws.com/demoapp")
+        /* To builds the dockerimage */
+        //update your ECR registry URI
+        app = docker.build("*******.dkr.ecr.us-east-1.amazonaws.com/demoapp")
     }
 
     stage('Test image') {
-        /* you can include a test framework against our image.
-         *  ;-) */
+        /* Try killing some white walkers for testing ;-) */
 
         app.inside {
-            sh 'echo "Tests passed"'
+            sh 'echo "Hurray !! Tests passed, Valar Morghulis "'
         }
     }
 
     stage('Push image') {
         /* Finally, we'll push the image */
         //docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-        docker.withRegistry('https://161764708719.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws_ecr')    {
+        // update your ECR registry URI and jenkins crendential paramater
+        docker.withRegistry('https://*******.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws_ecr')    {
             //app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
