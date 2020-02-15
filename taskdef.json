@@ -1,6 +1,6 @@
 {
-    "executionRoleArn": "arn:aws:iam::004959158725:role/ecsTaskExecutionRole",
-    "TaskRoleArn":"arn:aws:iam::004959158725:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::004959158725:role/ecs-task-execution-role",
+    "TaskRoleArn": "arn:aws:iam::004959158725:role/ecs-task-execution-role",
     "containerDefinitions": [
         {
             "name": "sample-website",
