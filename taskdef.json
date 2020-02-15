@@ -2,7 +2,7 @@
     "executionRoleArn": "arn:aws:iam::004959158725:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
-            "name": "nginx",
+            "name": "sample-website",
             "image": "alokmalakar/demoapp",
             "essential": true,
             "portMappings": [
@@ -20,5 +20,5 @@
     "networkMode": "awsvpc",
     "cpu": "256",
     "memory": "512",
-    "family": "new-task"
+    "family": "ecs-demo"
 }
