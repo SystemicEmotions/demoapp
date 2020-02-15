@@ -15,7 +15,7 @@
         }
     ],
     "requiresCompatibilities": [
-        "Fargate"
+        "EC2"
     ],
     "networkMode": "awsvpc",
     "cpu": "256",
