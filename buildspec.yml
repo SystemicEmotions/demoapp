@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  variables:
+    IMAGE_REPO_NAME: "alokmalakar/demoapp"
 
 phases:
   install:
@@ -14,10 +17,12 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
+      - docker push $IMAGE_REPO_NAME:$IMAGE_TAG
       - echo Writing image definitions file...
       - printf '[{"name":"demoapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
