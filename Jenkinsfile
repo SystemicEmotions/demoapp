@@ -17,7 +17,7 @@ node {
         /* Try killing some white walkers for testing ;-) */
 
         app.inside {
-            sh 'echo "Hurray !! Tests passed, Valar Morghulis "'
+            sh 'echo "Hurray !! Tests passed., Valar Morghulis "'
         }
     }
 
