@@ -1,4 +1,4 @@
-FROM nginx
+FROM public.ecr.aws/nginx/nginx:latest
 
 COPY startup.sh /
 RUN chmod +x startup.sh
